@@ -111,13 +111,13 @@ export const logout = async (_, res) => {
 };
 
 // Get Profile function
-export const getprofile = async (req, res) => {
+export const getProfile = async (req, res) => {
     try {
-        const userid = req.params.id;
-        const user = await User.findById(userid).select("-password");
+        const userId = req.params.id;
+        let user = await User.findById(userId).populate({path:'posts', createdAt:-1}).populate('bookmarks');
         return res.status(200).json({
             user,
-            success: true,
+            success: true
         });
     } catch (error) {
         console.log(error);
