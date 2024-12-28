@@ -34,7 +34,7 @@ const CommentDialog = ({ open, setOpen }) => {
   const sendMessageHandler = async () => {
 
     try {
-      const res = await axios.post(`http://localhost:5000/api/v1/post/${selectedPost?._id}/comment`, { text }, {
+      const res = await axios.post(`https://instaclone-g9h5.onrender.com/api/v1/post/${selectedPost?._id}/comment`, { text }, {
         headers: {
           'Content-Type': 'application/json'
         },
@@ -98,7 +98,7 @@ const CommentDialog = ({ open, setOpen }) => {
               </Dialog>
             </div>
             <hr />
-            <div className='flex-1 overflow-y-auto overflow-y-auto p-4'>
+            <div className='flex-1 overflow-y-auto max-h-96 p-4'>
               {
                 comment.map((comment) => <Comment key={comment._id} comment={comment} />)
               }

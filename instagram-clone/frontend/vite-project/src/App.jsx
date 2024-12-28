@@ -55,7 +55,7 @@ function App() {
 
   useEffect(() => {
     if (user) {
-      const socketio = io('http://localhost:5000', {
+      const socketio = io('http://localhost:8000', {
         query: {
           userId: user?._id
         },
